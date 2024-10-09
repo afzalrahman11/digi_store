@@ -23,8 +23,8 @@ default: &default
 development:
   <<: *default
   database: digi_store_development
-  username: postgres
-  password: postgres123
+  username: <%= ENV['DIGI_DB_USERNAME'] %>
+  password: <%= ENV['DIGI_DB_PASSWORD'] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -50,8 +50,8 @@ development:
 test:
   <<: *default
   database: digi_store_test
-  username: postgres
-  password: postgres123
+  username: <%= ENV['DIGI_DB_USERNAME'] %>
+  password: <%= ENV['DIGI_DB_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
