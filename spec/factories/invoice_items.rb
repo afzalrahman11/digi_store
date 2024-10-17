@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :invoice_item do
-    item { nil }
-    invoice { nil }
-    quantity { "9.99" }
-    price { "9.99" }
+    quantity { rand(1.00..500.00).round(2) }
+    price { rand(100.00..1000.00).round(2) }
+    association :item
+    association :invoice
   end
 end

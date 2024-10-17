@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :item do
-    name { "MyString" }
-    quantity { "9.99" }
-    unit { "MyString" }
-    price { "9.99" }
-    category { nil }
+    name { Faker::Commerce.product_name }
+    quantity { rand(1..100) }
+    unit { %w[ kg litres pieces ].sample }
+    price { rand(5.00..500.00).round(2) }
+    association :category
   end
 end

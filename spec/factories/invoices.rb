@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :invoice do
-    user { nil }
-    debtor { nil }
-    payment_status { 1 }
-    date { "2024-10-10 19:21:29" }
-    total_amount { "9.99" }
+    payment_status { Invoice.payment_statuses.keys.sample }
+    date { Faker::Date.backward(days: 14) }
+    total_amount { rand(1.00..1000.00).round(2) }
+    association :user
+    association :debtor
   end
 end
