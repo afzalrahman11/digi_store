@@ -39,6 +39,6 @@ class InvoiceItemsController < ApplicationController
   end
 
   def invoice_item_params
-    params.require(:invoice_item).permit(:payment_status, :date, :total_amount, :user_id, :debtor_id)
+    params.require(:invoice_item).permit(:item_id, :quantity, :price).merge(invoice_id: params[:invoice_id])
   end
 end

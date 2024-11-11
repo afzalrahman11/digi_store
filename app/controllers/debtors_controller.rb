@@ -39,6 +39,6 @@ class DebtorsController < ApplicationController
   end
 
   def debtor_params
-    params.require(:debtor).permit(:name, :phone, :total_debt)
+    params.require(:debtor).permit(:name, :phone, :email, :total_debt)
   end
 end
