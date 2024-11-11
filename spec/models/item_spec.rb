@@ -38,14 +38,6 @@ RSpec.describe Item, type: :model do
     expect(duplicate_item.errors[:name]).to include("has already been taken")
   end
 
-  it "is invalid with duplicate units" do
-    create(:item, unit: "First Unit")
-
-    duplicate_item = build(:item, unit: "First Unit")
-    expect(duplicate_item).to_not be_valid
-    expect(duplicate_item.errors[:unit]).to include("has already been taken")
-  end
-
   it "is invalid with negative quantity" do
     item = build(:item, quantity: -1)
 

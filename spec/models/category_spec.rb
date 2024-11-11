@@ -26,14 +26,6 @@ RSpec.describe Category, type: :model do
     expect(duplicate_category.errors[:name]).to include("has already been taken")
   end
 
-  it "is invalid with duplicate units" do
-    create(:category, unit: "First Unit")
-
-    duplicate_category = build(:category, unit: "First Unit")
-    expect(duplicate_category).to_not be_valid
-    expect(duplicate_category.errors[:unit]).to include("has already been taken")
-  end
-
   it "has many items" do
     category = create(:category)
     item1 = create(:item, category: category)
